@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "crane-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2022-07-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "ENVIRONMENT": "development",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "crane-local-db",
+      "database_id": "local",
+      "migrations_dir": "./src/db/migrations",
+    },
+  ],
+  "env": {
+    "staging": {
+      "vars": {
+        "ENVIRONMENT": "staging",
+      },
+    },
+    "production": {
+      "vars": {
+        "ENVIRONMENT": "production",
+      },
+    },
+  },
+}
