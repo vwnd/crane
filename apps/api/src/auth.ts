@@ -9,4 +9,7 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
   },
+  trustedOrigins: async (request) => {
+    return ["http://localhost:3000"];
+  },
 });
